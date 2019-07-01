@@ -12,7 +12,7 @@ pageEncoding="ISO-8859-1"%>
     <body>
         <div class="box">
             <h2>Sign In</h2>
-            <form name="signin" method="post" action="SignInServlet">
+            <form name="signin" method="post" action="SignInServlet" autocomplete="off">
             	<div class="inputBox">
                     <input type="text" name="nombre" required="">
                     <label>Nombre</label>

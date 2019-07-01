@@ -83,8 +83,21 @@ body {
     cursor: pointer;
     border-radius: 5px;
 }
+
 .box .button #signin2{
 	float:left;
+	background: transparent;
+    border: none;
+    outline: none;
+    color: #000;
+    background: #03a9f4;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.box .button #volver{
+	float:center;
 	background: transparent;
     border: none;
     outline: none;

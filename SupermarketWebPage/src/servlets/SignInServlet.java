@@ -40,13 +40,14 @@ public class SignInServlet extends HttpServlet {
 		String apellido = request.getParameter("apellido");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		int idCliente = 167;
+		int idCliente = (int)(Math.random()*1000)+1;
 		Cliente cli = new Cliente(idCliente, nombre, apellido, username, password);
 		
 		DBCliente cliDB = new DBCliente();
 		cliDB.addCliente(cli);
 		
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("registrarSuccesfull.jsp");
+		
 	}
 
 }

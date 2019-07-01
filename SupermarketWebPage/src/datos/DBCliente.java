@@ -78,7 +78,7 @@ public class DBCliente{
 			{
 			Class.forName(driver);
 			Connection conexion = DriverManager.getConnection(url, user, pass);
-			 stmt = conexion.prepareStatement("insert into clientes(idCliente, nombre, apellido, username, paswword) values(?,?,?,?,?)");
+			 stmt = conexion.prepareStatement("INSERT INTO clientes(idCliente, nombre, apellido, username, password) values(?,?,?,?,?)");
 			stmt.setInt(1, c.getIdCliente());
 			stmt.setString(2, c.getNombre());
 			stmt.setString(3, c.getApellido());
