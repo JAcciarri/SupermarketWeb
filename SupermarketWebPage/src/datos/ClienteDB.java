@@ -21,6 +21,7 @@ public class ClienteDB {
 					cli.setIdCliente(rs.getInt("idCliente"));
 					cli.setNombre(rs.getString("nombre"));
 					cli.setApellido(rs.getString("apellido"));
+					cli.setTelefono(rs.getString("telefono"));
 					clientes.add(cli);
 				}
 			}

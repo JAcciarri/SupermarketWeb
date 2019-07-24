@@ -8,18 +8,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import datos.DBCliente;
-import entidades.*;
+import entidades.Cliente;
+
 /**
- * Servlet implementation class CheckSignIn
+ * Servlet implementation class AgregarCliente
  */
-@WebServlet("/SignInServlet")
-public class SignInServlet extends HttpServlet {
+@WebServlet("/AgregarCliente")
+public class AgregarCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SignInServlet() {
+    public AgregarCliente() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,17 +37,13 @@ public class SignInServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String nombre = request.getParameter("nombre");
 		String apellido = request.getParameter("apellido");
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		Cliente cli = new Cliente(nombre, apellido, username, password);
-		
-		DBCliente cliDB = new DBCliente();
-		cliDB.addCliente(cli);
-		
-		response.sendRedirect("registrarSuccesfull.jsp");
-		
+		String telefono = request.getParameter("telefono");
+		Cliente cli = new Cliente(nombre, apellido, telefono);
+		DBCliente.addPartialCliente(cli);
+		response.sendRedirect("agregarCliente.jsp");
 	}
 
 }

@@ -12,27 +12,27 @@ pageEncoding="ISO-8859-1"%>
     <body>
         <div class="box">
             <h2>Sign In</h2>
-            <form name="signin" method="post" action="SignInServlet" autocomplete="off">
-            	<div class="inputBox">
-                    <input type="text" name="nombre" required="">
-                    <label>Nombre</label>
-                </div>
-                <div class="inputBox">
-                    <input type="text" name="apellido" required="">
-                    <label>Apellido</label>
-                </div>
-                <div class="inputBox">
-                    <input type="text" name="username" required="">
-                    <label>Username</label>
-                </div>
-                <div class="inputBox">
-                    <input type="password" name="password" required="">
-                    <label>Password</label>
-                </div>
-                <div class="button">
-                	<button id="signin2" type="submit" > Registrarse
-                </div>
-            </form>
+	            <form name="signin" method="post" action="SignInServlet" autocomplete="off">
+	            	<div class="inputBox">
+	                    <input type="text" name="nombre" required="">
+	                    <label>Nombre</label>
+	                </div>
+	                <div class="inputBox">
+	                    <input type="text" name="apellido" required="">
+	                    <label>Apellido</label>
+	                </div>
+	                <div class="inputBox">
+	                    <input type="text" name="username" required="">
+	                    <label>Username</label>
+	                </div>
+	                <div class="inputBox">
+	                    <input type="password" name="password" required="">
+	                    <label>Password</label>
+	                </div>
+	                <div class="button">
+	                	<button id="signin2" type="submit" > Registrarse
+	                </div>
+	            </form>
         </div>
     </body>
 </html>

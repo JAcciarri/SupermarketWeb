@@ -7,19 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import datos.DBCliente;
-import entidades.*;
 /**
- * Servlet implementation class CheckSignIn
+ * Servlet implementation class ASD
  */
-@WebServlet("/SignInServlet")
-public class SignInServlet extends HttpServlet {
+@WebServlet("/ASD")
+public class ASD extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SignInServlet() {
+    public ASD() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,17 +34,8 @@ public class SignInServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nombre = request.getParameter("nombre");
-		String apellido = request.getParameter("apellido");
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		Cliente cli = new Cliente(nombre, apellido, username, password);
-		
-		DBCliente cliDB = new DBCliente();
-		cliDB.addCliente(cli);
-		
-		response.sendRedirect("registrarSuccesfull.jsp");
-		
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

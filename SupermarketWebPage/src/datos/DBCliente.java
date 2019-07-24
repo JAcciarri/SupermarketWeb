@@ -9,6 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+/// ESTE FUNCIONA 
+
+
 public class DBCliente{
 	
 	private static String driver="com.mysql.jdbc.Driver";
@@ -16,7 +19,7 @@ public class DBCliente{
 	private static String user="sistema";
 	private static String pass="simplesystem";
 	
-	public ArrayList<Cliente> getUsuarios(){ 
+	public static ArrayList<Cliente> getAllClientes(){ 
 		ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
 	
 		try
@@ -31,6 +34,7 @@ public class DBCliente{
 				cliente.setIdCliente(rs.getInt("idCliente"));
 				cliente.setNombre(rs.getString("nombre"));
 				cliente.setApellido(rs.getString("apellido"));
+				cliente.setTelefono(rs.getString("telefono"));
 				listaClientes.add(cliente);
 				}
 			if (rs!=null) {rs.close();}
@@ -44,7 +48,7 @@ public class DBCliente{
 	return listaClientes;
 	}
 	
-	public Cliente getClienteByUsername(String username){ 
+	public static Cliente getClienteByUsername(String username){ 
 		Cliente cliente = null;
 		try
 			{
@@ -71,7 +75,32 @@ public class DBCliente{
 	return cliente;
 	}
 	
-	public void addCliente(Cliente c) {
+	public static void addPartialCliente(Cliente c) {
+		PreparedStatement stmt= null;
+		ResultSet rs=null;
+		try
+			{
+			Class.forName(driver);
+			Connection conexion = DriverManager.getConnection(url, user, pass);
+			 stmt = conexion.prepareStatement("INSERT INTO clientes(nombre, apellido, telefono) values(?,?,?)");
+				stmt.setString(1, c.getNombre());
+				stmt.setString(2, c.getApellido());
+				stmt.setString(3, c.getTelefono());
+			stmt.executeUpdate();
+			 rs = stmt.executeQuery();
+			
+			if (rs!=null) {rs.close();}
+			if (stmt!=null) {stmt.close();}
+			conexion.close();
+			}
+			catch (Exception e)
+			{
+			e.printStackTrace();
+			} 
+	}
+	
+	
+	public static void addCliente(Cliente c) {
 		PreparedStatement stmt= null;
 		ResultSet rs=null;
 		try

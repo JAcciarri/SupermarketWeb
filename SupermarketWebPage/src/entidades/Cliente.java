@@ -9,16 +9,20 @@ public class Cliente {
 	String password;
 	
 	public Cliente(){}
-	public Cliente(int IdCliente, String nombre, String apellido, String username, String password) {
+	public Cliente( String nombre, String apellido, String username, String password) {
 		this.setNombre(nombre);
 		this.setApellido(apellido);
-		this.setIdCliente(IdCliente);
 		this.setUsername(username);
 		this.setPassword(password);
 	}
 	public Cliente (String username, String password) {
 		this.setUsername(username);
 		this.setPassword(password);
+	}
+	public Cliente(String nombre, String apellido, String telefono){
+		this.setNombre(nombre);
+		this.setApellido(apellido);
+		this.setTelefono(telefono);
 	}
 	public String getUsername() {
 		return username;
