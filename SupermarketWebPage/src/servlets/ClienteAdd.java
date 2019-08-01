@@ -1,24 +1,26 @@
 package servlets;
 
 import java.io.IOException;
-import entidades.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import datos.*;
+
+import datos.DBCliente;
+import entidades.Cliente;
+
 /**
- * Servlet implementation class LoginCheck
+ * Servlet implementation class AgregarCliente
  */
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/ClienteAdd")
+public class ClienteAdd extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public ClienteAdd() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,20 +38,12 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		//ClienteDB cliDB = new ClienteDB();
-		Cliente cli = DBCliente.getClienteByUsername(username);
-		
-		if (cli!=null && username.equals(cli.getUsername()) && password.equals(cli.getPassword())) 
-		{
-			response.sendRedirect("bienvenido.jsp");
-		}
-		else 
-		{
-			response.sendRedirect("error.jsp");
-		}
-		
+		String nombre = request.getParameter("nombre");
+		String apellido = request.getParameter("apellido");
+		String telefono = request.getParameter("telefono");
+		Cliente cli = new Cliente(nombre, apellido, telefono);
+		DBCliente.addPartialCliente(cli);
+		response.sendRedirect("clienteAdd.jsp");
 	}
 
 }

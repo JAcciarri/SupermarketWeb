@@ -75,6 +75,36 @@ public class DBCliente{
 	return cliente;
 	}
 	
+	public static Cliente getClienteByID(int ID){ 
+		Cliente cliente = null;
+		try
+			{
+			Class.forName(driver);
+			Connection conexion = DriverManager.getConnection(url, user, pass);
+			PreparedStatement st = conexion.prepareStatement("select * from clientes where idCliente=?");
+			st.setInt(1, ID);
+			ResultSet rs = st.executeQuery();
+				if (rs!=null && rs.next())
+				{
+				cliente = new Cliente();
+				cliente.setIdCliente(rs.getInt("idCliente"));
+				cliente.setUsername(rs.getString("username"));
+				cliente.setPassword(rs.getString("password"));
+				cliente.setNombre(rs.getString("nombre"));
+				cliente.setApellido(rs.getString("apellido"));
+				cliente.setTelefono(rs.getString("telefono"));
+				}
+			if (rs!=null) {rs.close();}
+			if (st!=null) {st.close();}
+			conexion.close();
+			}
+			catch (Exception e)
+			{
+			e.printStackTrace();
+			} 
+	return cliente;
+	}
+	
 	public static void addPartialCliente(Cliente c) {
 		PreparedStatement stmt= null;
 		ResultSet rs=null;
@@ -127,6 +157,59 @@ public class DBCliente{
 			{
 			e.printStackTrace();
 			} 
+	}
+	
+	public static void updateCliente(Cliente c) {
+		PreparedStatement stmt= null;
+		ResultSet rs=null;
+		try
+			{
+			Class.forName(driver);
+			Connection conexion = DriverManager.getConnection(url, user, pass);
+			 String SQL = "UPDATE clientes SET nombre=?, apellido=?, telefono=? WHERE idCliente='"+c.getIdCliente()+"'";
+			 stmt = conexion.prepareStatement(SQL);
+			stmt.setString(1, c.getNombre());
+			stmt.setString(2, c.getApellido());
+			stmt.setString(3, c.getTelefono());
+			stmt.executeUpdate();
+			 rs = stmt.executeQuery();
+				if (rs!=null && rs.next())
+				{
+
+				}
+			if (rs!=null) {rs.close();}
+			if (stmt!=null) {stmt.close();}
+			conexion.close();
+			}
+			catch (Exception e)
+			{
+			e.printStackTrace();
+			}
+	}
+	
+	public static void deleteCliente(Cliente c) {
+		PreparedStatement stmt= null;
+		ResultSet rs=null;
+		try
+			{
+			Class.forName(driver);
+			Connection conexion = DriverManager.getConnection(url, user, pass);
+			 String SQL = "DELETE FROM clientes WHERE idCliente='"+c.getIdCliente()+"'";
+			 stmt = conexion.prepareStatement(SQL);
+			 stmt.executeUpdate();
+			 rs = stmt.executeQuery();
+				if (rs!=null && rs.next())
+				{
+
+				}
+			if (rs!=null) {rs.close();}
+			if (stmt!=null) {stmt.close();}
+			conexion.close();
+			}
+			catch (Exception e)
+			{
+			e.printStackTrace();
+			}
 	}
 	
 }

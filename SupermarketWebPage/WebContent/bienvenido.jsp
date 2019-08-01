@@ -36,14 +36,15 @@
 			<td><%=c.getNombre() %></td>
 			<td><%=c.getApellido() %></td>
 			<td><%=c.getTelefono() %></td>
-			<td><input class="button-edit" type="submit" value="Editar">
-				<input class="button-delete" type="submit" value="Eliminar">
+			<td>
+				<a href="ClienteEdit?id=<%=c.getIdCliente()%>" class="button-edit"> Editar </a>
+				<a href="ClienteDelete?id=<%=c.getIdCliente()%>" class="button-delete"> Eliminar </a>
 			</td>
 		</tr>
 		<%} %>
 	</table>
 	<br>
-	<button class="button-default" onclick="self.location.href = 'agregarCliente.jsp'">Agregar cliente</button>
+	<button class="button-default" onclick="self.location.href = 'clienteAdd.jsp'">Agregar cliente</button>
 
 </body>
 </html>

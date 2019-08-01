@@ -4,6 +4,8 @@ import java.sql.*;
 
 public class FactoryConnection {
 
+	//REVISAR POR QUE NO FUNCIONA ? 
+	
 	private static FactoryConnection instancia;
 	
 	private String driver="com.mysql.jdbc.Driver";
