@@ -5,20 +5,25 @@
 <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
-<link href="css/supermercado.css" rel="stylesheet" type="text/css">
+<link href="css\supermercado.css" rel="stylesheet" type="text/css">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Bienvenido</title>
 </head>
 <body>
 
 	<div class="box">
 		<h2>Loggeado correctamente</h2>
-		<h2>I can see you're actually an admin</h2>
+		<h3>Cuenta de Admin</h3>
 	</div>
 
 	<br>
 	<h1>Lista de clientes</h1>
+		<form action="ClienteSearch" method="POST">
+			<input type="text" name="descripcion" size="30px" placeholder="Nombre del Cliente"> 
+			<button type="submit" class="button-default">Buscar</button>
+			<br><br>
+		</form>
 	<table class="table">
 		<tr>
 			<th>ID Cliente</th>
@@ -45,6 +50,7 @@
 	</table>
 	<br>
 	<button class="button-default" onclick="self.location.href = 'clienteAdd.jsp'">Agregar cliente</button>
+	<button class="button-default" onclick="self.location.href = 'productos.jsp'">Ver Productos</button>
 
 </body>
 </html>

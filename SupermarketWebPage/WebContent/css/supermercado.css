@@ -1,42 +1,32 @@
+@charset "ISO-8859-1";
 
-.table{
-	border:none;
-	background-color:white;
-	cell-padding:20px;
-	
+.box{
+	border: black solid 1px;
+	padding:10px;
+}
+.box h3{
+	padding:5px;
+	color: #4CAF50;
+	font-size: 26px;
+}
+
+.table td{
+	border: black solid 1px;
+	padding: 5px;
 }
 .table th{
-	padding:20px;
-	border:black solid 1px;
+	border: black solid 1px;
+	padding: 10px;
 }
-.table td{
-	padding:10px;
-	border:black solid 1px;
-}
-.button-edit{
-	background: transparent;
-    border: none;
-    outline: none;
-    background: #e0d841;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-.button-delete{
-	background: transparent;
-    border: none;
-    outline: none;
-    background: #ed1818;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-}
+
 .button-default{
-		background: transparent;
-    border: none;
-    outline: none;
-    background: #10b02d;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;	
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor:pointer;
 }
