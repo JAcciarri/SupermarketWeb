@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: supermercado
+-- Host: localhost    Database: supermercado
 -- ------------------------------------------------------
 -- Server version	5.7.26-log
 
@@ -30,7 +30,7 @@ CREATE TABLE `clientes` (
   `username` varchar(45) DEFAULT NULL,
   `password` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idCliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=918 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=925 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `clientes` (
 
 LOCK TABLES `clientes` WRITE;
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
-INSERT INTO `clientes` VALUES (893,'Diego','Stroppiana','34155744','diego','45657'),(894,'Jose','Lopez','34145454','joselopez','1234'),(910,'Quien','Sabra','8456151','Quien','soy'),(912,'Joshua','Acciarri','34165622','joshua','1234'),(913,'Tamara','Acciarri','341658921',NULL,NULL),(914,'Usuario','Agregado','3413131413',NULL,NULL);
+INSERT INTO `clientes` VALUES (893,'Diego','Stroppiana','34155744','diego','45657'),(894,'Jose','Lopez','34145454','joselopez','1234'),(910,'Quien','Sabra','8456151','Quien','soy'),(912,'Joshua','Acciarri','34165622','joshua','1234'),(913,'Tamara','Acciarri','341658921',NULL,NULL),(914,'Usuario','Agregado','3413131413',NULL,NULL),(918,'Martin','Oliva','341987845',NULL,NULL),(920,'Martinob','Semental','5445454',NULL,NULL),(921,'Martin Furia','Titanica','546565',NULL,NULL),(923,'Jose','Marconi','35424221',NULL,NULL),(924,'Joana','Sanchez','32211231',NULL,NULL);
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -77,4 +77,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-08-04 23:34:58
+-- Dump completed on 2019-08-08 22:37:25
