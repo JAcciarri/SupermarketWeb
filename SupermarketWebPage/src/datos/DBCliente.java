@@ -212,28 +212,27 @@ public class DBCliente{
 			}
 	}
 	
-	public static Cliente getClienteByDesc(String desc) {
+	public static ArrayList<Cliente> getClientesByDesc(String desc) {
 		PreparedStatement stmt= null;
 		ResultSet rs=null;
-		Cliente cliente = null;
+		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 		try
 			{
 			Class.forName(driver);
 			Connection conexion = DriverManager.getConnection(url, user, pass);
-			 String SQL = "SELECT * FROM clientes c WHERE c.nombre LIKE ('?%')";
+			 String SQL = "SELECT * FROM clientes WHERE nombre LIKE ('"+desc+"%')";
 			 stmt = conexion.prepareStatement(SQL);
-			 stmt.setString(1, desc);
-			 stmt.executeUpdate();
 			 rs = stmt.executeQuery();
-				if (rs!=null && rs.next())
+				while (rs!=null && rs.next())
 				{
-					cliente = new Cliente();
+					Cliente cliente = new Cliente();
 					cliente.setIdCliente(rs.getInt("idCliente"));
 					cliente.setUsername(rs.getString("username"));
 					cliente.setPassword(rs.getString("password"));
 					cliente.setNombre(rs.getString("nombre"));
 					cliente.setApellido(rs.getString("apellido"));
 					cliente.setTelefono(rs.getString("telefono"));
+					clientes.add(cliente);
 				}
 			if (rs!=null) {rs.close();}
 			if (stmt!=null) {stmt.close();}
@@ -243,7 +242,7 @@ public class DBCliente{
 			{
 			e.printStackTrace();
 			}
-		return cliente;
+		return clientes;
 	}
 	
 }

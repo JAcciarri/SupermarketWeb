@@ -1,6 +1,9 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,7 +34,16 @@ public class ClienteSearch extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String desc = request.getParameter("descripcion");
+		ArrayList<Cliente> clientes = DBCliente.getClientesByDesc(desc);
+	
+		for (int i = 0; i < clientes.size(); i++) {
+			//response.getWriter().print("cliente"+i);
+			request.setAttribute("cliente"+i, clientes.get(i));
+		}
+		request.setAttribute("cantClientes", clientes.size());
+		request.getRequestDispatcher("bienvenido.jsp").forward(request, response);
+		
 
 	}
 
@@ -39,9 +51,6 @@ public class ClienteSearch extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String desc = request.getParameter("descripcion");
-		response.getWriter().print(desc);
-		Cliente c = DBCliente.getClienteByDesc(desc);
 		
 	}
 
