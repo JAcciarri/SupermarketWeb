@@ -9,6 +9,6 @@
 </head>
 <body BGCOLOR="#3cb0a0">
 <h2>Usuario o contraseña incorrecta :(</h2>
-<input type="submit" value="Volver" class="button-default" onclick="self.location.href = 'index.jsp'">
+<input type="submit" value="Volver" class="button-default" onclick="self.location.href = 'login.jsp'">
 </body>
 </html>

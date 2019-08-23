@@ -1,23 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <link href="css\supermercado.css" rel="stylesheet" type="text/css">
 <head>
 <meta charset="ISO-8859-1">
-<title>Agregar Cliente</title>
+<title>Insert title here</title>
 </head>
 <body>
 
-	<form action="ClienteAdd" method="POST">
-	<h1> Agregar Cliente</h1>
-		<div ><label>Nombre</label>	<input type="text" required="" name="nombre"> </div> <br>
-		<div ><label>Apellido</label>	<input type="text" required="" name="apellido"> </div> <br>
-		<div ><label>Telefono</label>	<input type="text" required="" name="telefono"> </div> <br>
-		<button type="submit" class="button-default"> Enviar </button>
-		<button type="submit" onclick="self.location.href = 'bienvenido.jsp'"> Volver </button>
-	</form>
-
-<br> <br> <p>Prometo ser esteticamente mas agradable en un futuro
-</body>	
+	<div class="box">
+		<form action="ClienteAdd" method="POST">
+			<h1>Agregar Cliente</h1>
+			<div class="inputBox">
+				<input type="text" required="" name="nombre" placeholder="Nombre" autocomplete="off">
+			</div>
+			<br>
+			<div class="inputBox">
+				<input type="text" required=""  name="apellido" placeholder="Apellido" autocomplete="off">
+			</div>
+			<br>
+			<div class="inputBox">
+				 <input type="text" required="" name="telefono" placeholder="Telefono" autocomplete="off">
+			</div>
+			<br>
+			<button type="submit" class="button-default">Agregar</button>
+			<button type="submit" class="button-return"
+				onclick="self.location.href = 'abmClientes.jsp'">Volver</button>
+		</form>
+	</div>
+</body>
 </html>

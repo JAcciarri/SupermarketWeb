@@ -9,15 +9,27 @@
 </head>
 <body>
 
-	<form action="ProductoAdd" method="POST">
-	<h1> Agregar Producto</h1>
-		<div ><label>Descripcion</label> <input type="text" required="" name="descripcion"> </div> <br>
-		<div ><label>Precio</label>	<input type="text" required="" name="precio"> </div> <br>
-		<div ><label>Categoria</label>	 <input type="text" disabled name="categoria"> </div> <br>
-		<button type="submit" class="button-default"> Enviar </button>
-		<button type="submit" onclick="self.location.href = 'productos.jsp'"> Volver </button>
-	</form>
+	<div class="box">
+		<form action="ProductoAdd" method="POST">
+			<h1>Agregar Producto</h1>
+			<div class="inputBox">
+				<input type="text" required="" name="descripcion" placeholder="Descripcion" autocomplete="off">
+			</div>
+			<br>
+			<div class="inputBox">
+				<input type="text" required=""  name="precio" placeholder="Precio" autocomplete="off">
+			</div>
+			<br>
+			<div class="inputBox">
+				 <input type="text" required="" name="categoria" placeholder="Categoria" disabled autocomplete="off">
+			</div>
+			<br>
+			<button type="submit" class="button-default">Agregar</button>
+			<button type="submit" class="button-return"
+				onclick="self.location.href = 'abmProductos.jsp'">Volver</button>
+		</form>
+	</div>
 
-<br> <br> <p>Prometo ser esteticamente mas agradable en un futuro
+<br> <br> 
 </body>	
 </html>

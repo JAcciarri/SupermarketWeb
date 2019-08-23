@@ -6,93 +6,20 @@
 <!DOCTYPE html>
 <html>
 <link href="css\supermercado.css" rel="stylesheet" type="text/css">
+<link href="css\navbar.css" rel="stylesheet" type="text/css">
 <head>
 <meta charset="ISO-8859-1">
 <title>Bienvenido</title>
 </head>
 <body>
 
-	<div class="box">
-		<h2>Loggeado correctamente</h2>
-		<h3>Cuenta de Admin</h3>
-	</div>
-	
-	<%
-	if(request.getAttribute("cantClientes")!=null){
-		%>
-		<table class="table">
-				<tr>
-					<th>ID Cliente</th>
-					<th>Nombre</th>
-					<th>Apellido</th>
-					<th>Telefono</th>
-					<th>ACCIONES</th>
-				</tr>
-				<tr>
-		<% 		
-		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
-		for (int i=0; i<(int)(request.getAttribute("cantClientes")); i++){
-			clientes.add((Cliente)request.getAttribute("cliente"+i));
-		}
-		for (Cliente c : clientes){
-		%>
-			
-					<td><%=c.getIdCliente() %></td>
-					<td><%=c.getNombre() %></td>
-					<td><%=c.getApellido() %></td>
-					<td><%=c.getTelefono() %></td>
-					<td>
-						<a href="ClienteEdit?id=<%=c.getIdCliente()%>" class="button-edit"> Editar </a>
-						<a href="ClienteDelete?id=<%=c.getIdCliente()%>" class="button-delete"> Eliminar </a>
-					</td>
-				</tr>
-				<%} %>
-			</table>
-			<br>
-			<button class="button-default" onclick="self.location.href = 'bienvenido.jsp'">Volver</button>
-	<% }
-	else {%>
-			<br>
-			<h1>Lista de clientes</h1>
-				
-				<form action="ClienteSearch" method="GET">
-					<input type="text" name="descripcion" size="30px" placeholder="Nombre del Cliente"> 
-					<button type="submit" class="button-default">Buscar</button>
-					<br><br>
-				</form>
-			
-			<table class="table">
-				<tr>
-					<th>ID Cliente</th>
-					<th>Nombre</th>
-					<th>Apellido</th>
-					<th>Telefono</th>
-					<th>ACCIONES</th>
-				</tr>
-				<%
-					ArrayList<Cliente> listaClientes = DBCliente.getAllClientes();
-					for(Cliente c : listaClientes){
-					%>
-				<tr>
-					<td><%=c.getIdCliente() %></td>
-					<td><%=c.getNombre() %></td>
-					<td><%=c.getApellido() %></td>
-					<td><%=c.getTelefono() %></td>
-					<td>
-						<a href="ClienteEdit?id=<%=c.getIdCliente()%>" class="button-edit"> Editar </a>
-						<a href="ClienteDelete?id=<%=c.getIdCliente()%>" class="button-delete"> Eliminar </a>
-					</td>
-				</tr>
-				
-				
-				<%} %>
-				</table>
-				<br>
-		<button class="button-default" onclick="self.location.href = 'clienteAdd.jsp'">Agregar cliente</button>
-		<button class="button-default" onclick="self.location.href = 'productos.jsp'">Ver Productos</button>
-	<% }%>	
-	
-	
+		<ul>
+		  <li><a href="bienvenido.jsp">Home</a></li>
+		  <li><a href="abmClientes.jsp">ABM Clientes</a></li>
+		  <li><a href="productoAdd.jsp">ABM Productos</a></li>
+		  <li><a >About US</a></li>
+		</ul>
+
 
 </body>
 </html>
